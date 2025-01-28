@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import supabase from "../utils/setupSupabase";
+import { supabase } from "../util/setupSupaBase";
 
 export type Product = {
 	id: number;
@@ -11,17 +11,18 @@ export type Product = {
 	price: number;
 };
 const ProductList = () => {
-
 	const [products, setProducts] = useState<Product[]>([]);
 
 	useEffect(() => {
-
 		async function getProducts() {
-			const { data, error } = await supabase.from('products').select('*').eq('in_stock', true)
-			setProducts(data)
+			const { data, error } = await supabase.from("products").select("*");
+			console.log(data);
+			if (data) {
+				setProducts(data as Product[]);
+			}
 		}
-		getProducts()
-	}, [])
+		getProducts();
+	}, []);
 
 	return (
 		<div>
@@ -35,13 +36,16 @@ const ProductList = () => {
 					>
 						<h2 className="text-xl font-semibold mb-2">{product.name}</h2>
 
-						<img src={product.img_url ? product.img_url : '/placeholder-image.jpg'} alt={product.name} />
+						<img
+							src={product.img_url ? product.img_url : "/placeholder-image.jpg"}
+							alt={product.name}
+						/>
 						<p className="text-gray-600">${product.price.toFixed(2)}</p>
 					</Link>
 				))}
 			</div>
 		</div>
 	);
-}
+};
 
 export default ProductList;

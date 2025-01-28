@@ -10,11 +10,15 @@ const ProductDetail = () => {
 
 	useEffect(() => {
 		async function getProduct() {
-			const { data, error } = await supabase.from('products').select('*').eq('id', id).single()
-			setProduct(data)
+			const { data, error } = await supabase
+				.from("products")
+				.select("*")
+				.eq("id", id)
+				.single();
+			setProduct(data);
 		}
-		getProduct()
-	}, [])
+		getProduct();
+	}, []);
 
 	if (!product) {
 		return <div>Loading...</div>;

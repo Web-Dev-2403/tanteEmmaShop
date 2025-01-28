@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Product } from "../components/ProductList";
 import { getUserSession } from "../utils/auth";
-import supabase from "../utils/setupSupabase";
+import { supabase } from "../utils/setupSupaBase";
 
 const Cart = () => {
 	const [products, setProducts] = useState<Product[]>([]);

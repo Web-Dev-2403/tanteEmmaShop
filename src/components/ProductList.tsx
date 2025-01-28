@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { supabase } from "../util/setupSupaBase";
+import { supabase } from "../utils/setupSupaBase";
+
 
 export type Product = {
 	id: number;

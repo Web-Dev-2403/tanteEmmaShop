@@ -1,8 +1,9 @@
 import { useParams } from "react-router";
 import { Product } from "../components/ProductList";
 import { useEffect, useState } from "react";
-import supabase from "../utils/setupSupabase";
+
 import { anonSignUp, getUserSession } from "../utils/auth";
+import { supabase } from "../utils/setupSupaBase";
 
 const ProductDetail = () => {
 	const { id } = useParams();

@@ -17,7 +17,7 @@ const ProductList = () => {
 	useEffect(() => {
 
 		async function getProducts() {
-			const { data, error } = await supabase.from('products').select('*')
+			const { data, error } = await supabase.from('products').select('*').eq('in_stock', true)
 			setProducts(data)
 		}
 		getProducts()

@@ -7,6 +7,7 @@ import {
 } from "react-router";
 import LandingPage from "./pages/LandingPage";
 import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 
 // Mock Data
 const products = [
@@ -89,12 +90,7 @@ const Layout = () => (
 
 
 
-const Cart = () => (
-	<div>
-		<h1 className="text-3xl font-bold mb-6">Your Cart</h1>
-		<p>Your cart is currently empty.</p>
-	</div>
-);
+
 
 // Router Configuration
 const router = createBrowserRouter([
